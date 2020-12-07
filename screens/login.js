@@ -6,19 +6,25 @@ export default function login() {
     const [password, setPassword] = useState('');
     
     return (
-        <View style={styles.inputView} >
-            <TextInput  
-            style={styles.inputText}
-            placeholder="Email..." 
-            placeholderTextColor="#003f5c"
-            onChangeText={text => setEmail(text)} />
+        <View style={styles.container} >
+            <Text style={styles.logo}>Self Attendance</Text>
 
-            <TextInput  
-            style={styles.inputText}
-            placeholder="Password..." 
-            placeholderTextColor="#003f5c"
-            secureTextEntry="false"
-            onChangeText={text => setPassword(text)} />
+            <View style={styles.inputView} >
+                <TextInput  
+                style={styles.inputText}
+                placeholder="Email..." 
+                placeholderTextColor="#003f5c"
+                onChangeText={text => setEmail(text)} />
+            </View>
+
+            <View style={styles.inputView} >
+                <TextInput  
+                style={styles.inputText}
+                placeholder="Password..." 
+                placeholderTextColor="#003f5c"
+                secureTextEntry={true}
+                onChangeText={text => setPassword(text)} />
+            </View>
 
             <TouchableOpacity style={styles.loginBtn}>
                 <Text style={styles.loginText}>LOGIN</Text>
