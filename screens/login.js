@@ -60,6 +60,9 @@ const styles = StyleSheet.create({
         height:50,
         color:"white"
     },
+    loginText: {
+        color:"white"
+    },
     loginBtn:{
         width:"80%",
         backgroundColor:"#fb5b5a",
