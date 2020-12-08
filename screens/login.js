@@ -1,38 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 
-export default function login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    
-    return (
-        <View style={styles.container} >
-            <Text style={styles.logo}>Self Attendance</Text>
-
-            <View style={styles.inputView} >
-                <TextInput  
-                style={styles.inputText}
-                placeholder="Email..." 
-                placeholderTextColor="#003f5c"
-                onChangeText={text => setEmail(text)} />
-            </View>
-
-            <View style={styles.inputView} >
-                <TextInput  
-                style={styles.inputText}
-                placeholder="Password..." 
-                placeholderTextColor="#003f5c"
-                secureTextEntry={true}
-                onChangeText={text => setPassword(text)} />
-            </View>
-
-            <TouchableOpacity style={styles.loginBtn}>
-                <Text style={styles.loginText}>LOGIN</Text>
-            </TouchableOpacity>
-        </View>
-    );
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -73,4 +41,36 @@ const styles = StyleSheet.create({
         marginTop:40,
         marginBottom:10
     }
-  });
+});
+
+export default function login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+    return (
+        <View style={styles.container} >
+            <Text style={styles.logo}>Self Attendance</Text>
+
+            <View style={styles.inputView} >
+                <TextInput  
+                style={styles.inputText}
+                placeholder="Email..." 
+                placeholderTextColor="#003f5c"
+                onChangeText={text => setEmail(text)} />
+            </View>
+
+            <View style={styles.inputView} >
+                <TextInput  
+                style={styles.inputText}
+                placeholder="Password..." 
+                placeholderTextColor="#003f5c"
+                secureTextEntry={true}
+                onChangeText={text => setPassword(text)} />
+            </View>
+
+            <TouchableOpacity style={styles.loginBtn}>
+                <Text style={styles.loginText}>LOGIN</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}

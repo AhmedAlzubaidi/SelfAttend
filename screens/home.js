@@ -1,17 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-
-export default function Home() {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.logo}>Self Attendance App</Text>
-
-            <TouchableOpacity style={styles.attendBtn}>
-                <Text style={styles.attendText}>Attend</Text>
-            </TouchableOpacity>
-        </View>
-    )
-}
 
 const styles = StyleSheet.create({
     container: {
@@ -25,6 +13,25 @@ const styles = StyleSheet.create({
         fontSize:35,
         color:"#fb5b5a",
         marginBottom:40
+    },
+    studentView: {
+        height: "100%",
+        width:"80%",
+        backgroundColor:"#465881",
+        borderRadius:25,
+        height:50,
+        justifyContent:"center",
+        padding:20
+    },
+    studentLabel: {
+        fontWeight:"bold",
+        fontSize:15,
+        color:"#fb5b5a"
+    },
+    student: {
+        fontWeight:"bold",
+        fontSize:15,
+        color:"white"
     },
     attendBtn: {
         width:"80%",
@@ -41,3 +48,22 @@ const styles = StyleSheet.create({
         fontSize: 20
     }
 })
+
+export default function Home() {
+    const [student, setStudent] = useState('Abdullah');
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.logo}>Self Attendance</Text>
+
+            <View style={styles.studentView}>
+                <Text style={styles.studentLabel}>
+                    Student: <Text style={styles.student}>{student}</Text>
+                </Text>
+            </View>
+            <TouchableOpacity style={styles.attendBtn}>
+                <Text style={styles.attendText}>Attend</Text>
+            </TouchableOpacity>
+        </View>
+    )
+}
