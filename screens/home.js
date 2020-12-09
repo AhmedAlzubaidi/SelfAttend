@@ -49,8 +49,13 @@ const styles = StyleSheet.create({
     }
 })
 
-export default function Home() {
-    const [student, setStudent] = useState('Abdullah');
+export default function homePage({ navigation }) {
+    const [username, setUsername] = useState(navigation.getParam('username', 'you are not logged in'));
+    const [token, setToken] = useState(navigation.getParam('token', ''));
+
+    function attend() {
+        
+    }
 
     return (
         <View style={styles.container}>
@@ -58,7 +63,7 @@ export default function Home() {
 
             <View style={styles.studentView}>
                 <Text style={styles.studentLabel}>
-                    Student: <Text style={styles.student}>{student}</Text>
+                    Student: <Text style={styles.student}>{username}</Text>
                 </Text>
             </View>
             <TouchableOpacity style={styles.attendBtn}>

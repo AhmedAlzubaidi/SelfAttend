@@ -1,5 +1,4 @@
-import React from 'react'
-import { createDrawerNavigator, DrawerActions } from 'react-navigation-drawer';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 
 import Home from '../screens/home';

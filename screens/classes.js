@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function Classes() {
+export default function ClassesPage() {
     const [classes, setClasses] = useState([
     {
         name: "class1",

@@ -43,10 +43,43 @@ const styles = StyleSheet.create({
     }
 });
 
-export default function login() {
-    const [email, setEmail] = useState('');
+export default function loginPage({ navigation }) {
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [token, setToken] = useState('');
     
+    function login() {
+        if(loggedIn) {
+            alert('you are already logged in');
+            return;
+        }
+
+        fetch('http://www.abode.com/login', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        })
+        .then((response) => response.json())
+        .then((res) => {
+            if(res.success === true) {
+                setUsername(res.user.name);
+                setToken(res.token);
+                setLoggedIn(true);
+                navigation.navigate('Home', {username: username, token: token});
+                alert('you have successfully logged in');
+            } else {
+                alert('something wrong with the server');
+            }
+        })
+        .catch((error) => alert(error));
+    }
     return (
         <View style={styles.container} >
             <Text style={styles.logo}>Self Attendance</Text>
@@ -54,9 +87,9 @@ export default function login() {
             <View style={styles.inputView} >
                 <TextInput  
                 style={styles.inputText}
-                placeholder="Email..." 
+                placeholder="Username..." 
                 placeholderTextColor="#003f5c"
-                onChangeText={text => setEmail(text)} />
+                onChangeText={(text) => setUsername(text)} />
             </View>
 
             <View style={styles.inputView} >
@@ -65,10 +98,10 @@ export default function login() {
                 placeholder="Password..." 
                 placeholderTextColor="#003f5c"
                 secureTextEntry={true}
-                onChangeText={text => setPassword(text)} />
+                onChangeText={(text) => setPassword(text)} />
             </View>
 
-            <TouchableOpacity style={styles.loginBtn}>
+            <TouchableOpacity style={styles.loginBtn} onPress={() => navigation.navigate('Home', {username: username, token: token})}>
                 <Text style={styles.loginText}>LOGIN</Text>
             </TouchableOpacity>
         </View>
