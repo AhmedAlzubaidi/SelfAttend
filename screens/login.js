@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 
+const LoginContext = React.createContext();
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -80,6 +82,7 @@ export default function loginPage({ navigation }) {
         })
         .catch((error) => alert(error));
     }
+    
     return (
         <View style={styles.container} >
             <Text style={styles.logo}>Self Attendance</Text>

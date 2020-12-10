@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -49,10 +49,7 @@ const styles = StyleSheet.create({
     }
 })
 
-export default function homePage({ navigation }) {
-    const [username, setUsername] = useState(navigation.getParam('username', 'you are not logged in'));
-    const [token, setToken] = useState(navigation.getParam('token', ''));
-
+export default function homePage() {
     function attend() {
         
     }
